@@ -1,0 +1,23 @@
+{%  extends 'ProyectoWebApp/base.html' %}
+{% load static %}
+{% block content %}
+<div class="modal-dialog">
+   <div class="modal-content">
+      <div class="modal-header">
+         <h2 class="modal-title" id="exampleModalLabel">Observaciones de la entrega</h2>
+      </div>
+      <form action="{% url 'Conductor' %}" method="POST">
+         <div class="modal-body">
+            {% csrf_token %}
+            <table> {{ form.as_table }} </table>
+         </div>
+         <div class="modal-footer">
+            <button class="btn btn-success" name="entregado" >Entregado</button>
+            <button class="btn btn-danger" name="no_entregado" >No Entregado</button>
+         </div>
+      </form>
+   </div>
+</div>
+
+
+{% endblock %}
